@@ -15,6 +15,7 @@
   font-family: "Roboto", sans-serif;
   text-decoration: none;
   list-style-type: none;
+  color: var(--color_secondary);
 }
 body {
   background-color: var(--color_primary);
@@ -47,9 +48,6 @@ header {
 #menu_toggle {
   display: none;
 }
-.hero__image_movil {
-  display: none;
-}
 .navbar_list {
   display: flex;
   justify-content: center;
@@ -61,9 +59,15 @@ header {
   font-weight: 700;
   color: var(--color_primary);
 }
+#icon_page_pink {
+  height: 80px;
+  padding: 5px;
+  display: none;
+}
 #icon_page {
   height: 80px;
   padding: 5px;
+  display: inline;
 }
 main {
   display: flex;
@@ -78,6 +82,7 @@ main {
 }
 h1 {
   font-size: 2em;
+  text-align: center;
 }
 .hero__title {
   margin-top: 50px;
@@ -90,7 +95,7 @@ h1 {
   align-items: center;
   gap: 15px;
   font-weight: 900;
-  color: var(--color_secondary);
+  /* color: var(--color_secondary); */
 }
 .hero__title p {
   font-size: 18px;
@@ -117,6 +122,13 @@ h1 {
 .hero__image img {
   width: 750px;
 }
+.hero_image_movil {
+  display: none;
+}
+.hero__image_table {
+  display: none;
+  height: calc(100vh - 120px);
+}
 .about__container {
   width: 100%;
   height: auto;
@@ -124,7 +136,6 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px dashed black;
 }
 .about__image img {
   width: 300px;
@@ -139,13 +150,13 @@ h1 {
   /* gap: 30px;*/
   text-align: center;
   font-weight: 700;
-  color: var(--color_secondary);
+  /* color: var(--color_secondary); */
 }
 .about__info h3 {
   font-size: 2em;
   padding-bottom: 5px;
 }
-/* sin comit */
+
 .cards_container {
   width: 100%;
   min-height: auto;
@@ -156,7 +167,7 @@ h1 {
   margin-top: 50px;
 }
 .cards_title {
-  color: var(--color_secondary);
+  /* color: var(--color_secondary); */
   font-size: 1.5em;
 }
 .cards_price_container {
@@ -167,7 +178,6 @@ h1 {
   align-items: center;
   gap: 25px;
   margin-top: 30px;
-  border: 2px dashed black;
   /* flex-wrap: wrap; */
 }
 .cards_price {
@@ -235,23 +245,28 @@ h1 {
 .contact_container {
   width: 100%;
   height: 100vh;
+  min-height: 530px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 80px;
   margin-top: 200px;
-  border: 2px dashed black;
 }
 .contact_map {
   display: flex;
 }
+.contact_map iframe {
+  width: 500px;
+  height: 250px;
+}
+
 .contact_info {
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
   gap: 10px;
-  color: var(--color_secondary);
+  /* color: var(--color_secondary); */
   text-align: center;
 }
 .contact_info i {
@@ -272,29 +287,77 @@ h1 {
   align-items: center;
   padding: 0 20px;
 }
+.footer span {
+  color: var(--color_primary);
+}
 .footer img {
   height: 80px;
 }
 
 @media (max-width: 992px) {
-  /* .contact_map {
-    display: none;
-  } */
+  .navbar_list {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: var(--color_secondary);
+    /* display: none; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: var(--color_2_paleta);
+    transform: translateX(-100%);
+    transition: all 1.2s ease;
+  }
+
   .hero__image {
     display: none;
   }
-  .hero__image_movil,
+  .hero__image_table {
+    display: flex;
+    min-height: 400px;
+  }
   #hamburger {
     display: flex;
   }
-  .navbar_list {
-    display: none;
-  }
-
   .contact_container {
     flex-direction: column;
   }
   .cards_price_container {
     flex-direction: column;
+  }
+  #menu_toggle:checked ~ .navbar_list {
+    transform: translateX(0%);
+  }
+}
+@media (max-width: 650px) {
+  .hero__image_table {
+    display: none;
+  }
+  .hero_image_movil {
+    display: flex;
+  }
+  .about__image {
+    display: none;
+  }
+  .contact_map iframe {
+    width: 320px;
+    height: 200px;
+  }
+  .hero__title {
+    padding-left: 35px;
+  }
+}
+@media (max-width: 520px) {
+  .hero__container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cards_price {
+    width: 320px;
   }
 }
